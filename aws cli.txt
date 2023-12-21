@@ -1,0 +1,124 @@
+==========
+AWS CLI 
+==========
+
+AWS provides two ways of infrastructure configurations
+
+1) AWS Management Web Console
+
+2) AWS CLI (Command Line Interface)
+
+===========================
+Using the AWS web console: 
+===========================
+
+It is a graphical method to connect to various AWS resources, their configuration, modification, etc. It is simple to use and does not require knowledge of scripting.
+
+============================
+AWS Command Line Interface: 
+============================
+
+Usually, the script provides you with the flexibility to manage multiple AWS resources, infrastructures effectively. 
+
+For example, we can use the script to deploy multiple resources without the need to go through a complete configuration wizard each time.
+
+============================
+Configuring AWS CLI
+=============================
+
+1) Create AWS Account: In order to configure AWS CLI.
+
+2) Create IAM user with Security Credentials and note down Access Keys
+
+	Access Key : AKIA4DTRM7HKEVQUSXUR
+	Secret Key : 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
+
+3) Install AWS CLI: AWS CLI is available for Windows, MAC and Linux distribution of OS.
+
+	a) For windows : https://awscli.amazonaws.com/AWSCLIV2.msi (download and install)	
+		
+	b) MAC and Linux: Please follow these steps (execute below commands)
+
+			$ sudo apt-get install -y python-dev python-pip
+			$ sudo pip install awscli			
+
+3) Once Installation completed then execute below commands
+
+	$ aws --version (It should give AWS CLI version)
+	$ aws configure (To connect with AWS Cloud)
+
+Note: AWS configure command will ask for access key, secret access key, region and output format.
+
+#########  CLI Documentation : https://docs.aws.amazon.com/cli/latest/reference/  ##########
+
+
+================================================
+Working with AWS S3 Service using AWS CLI
+================================================
+Step-1: In this case, we will be using AWS S3 (Simple Storage Service) as an example.
+
+In brief, AWS S3 is an object storage service.
+
+Step-2: Next, we are going to run â€œaws s3 ls" (to display bucket lis)
+
+		$ aws s3 ls
+		
+Step-3: After listing out the content of the existing bucket, let us try to create a new s3 bucket using AWS CLI
+
+		$ aws s3 mb s3://neeltechjuction1234
+Step-4: As a result of the command execution, the bucket should be created
+
+Step-5: After the command has been executed, let us check, if the bucket has been created and what is the region of the bucket.
+
+
+Step-6: Delete bucket
+
+		$ aws s3 rb s3://neeltechjuction1234
+
+===========================
+List out all ec2 instances 
+===========================
+$ aws ec2 describe-instances
+
+Note : It will list down all the data in JSON format
+
+
+=========================================
+Create a New Key Pair for EC2 Instances
+=========================================
+
+-> Before launching a new EC2 instance weâ€™ll need an SSH key pair that weâ€™ll use to connect to it securely.
+
+$ aws ec2 create-key-pair --key-name neelakantakey --output text > neelakanta.pem
+
+
+C:\Users\admin ---------------> location
+
+
+==========================
+Launch New EC2 Instances
+==========================
+$ aws ec2 run-instances --image-id ami-09d9029d9fc5e5238 --instance-type t2.micro --key-name neelakantakey(key pair name)
+
+
+=================================
+Stop and Start an EC2 Instance
+=================================
+
+$ aws ec2 stop-instances --instance-ids <instance-id>
+
+Ex: aws ec2 stop-instances --instance-ids i-0f62936b8eea82dfd
+
+And start again:
+
+$ aws ec2 start-instances --instance-ids <instance-id>
+
+Ex: $ aws ec2 start-instances --instance-ids i-0f62936b8eea82dfd
+
+
+========================
+Terminate an Instance
+========================
+$ aws ec2 terminate-instances --instance-ids <instance-id>
+
+Ex: $ aws ec2 terminate-instances --instance-ids i-0f62936b8eea82dfd

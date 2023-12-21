@@ -1,0 +1,61 @@
+admin
+123456789
+
+database-1.cjnhzlbw6na7.us-east-1.rds.amazonaws.com
+3306
+
+========================
+COMMANDS
+=====================
+sudo su
+apt-get update
+apt-get install mysql-client
+mysql -h database-1.cjnhzlbw6na7.us-east-1.rds.amazonaws.com -u admin -p
+
+mysql --version
+
+show databases;
+create database neelakanta;
+use neelakanta;
+show tables;
+
+CREATE TABLE Persons (
+    PersonID int,
+    LastName varchar(255),
+    FirstName varchar(255),
+    Address varchar(255),
+    City varchar(255)
+);
+
+
+
+INSERT INTO Persons (PersonID, LastName, FirstName, Address, City)
+VALUES
+    (1, 'Smith', 'John', '123 Main St', 'New York'),
+    (2, 'Johnson', 'Jane', '456 Elm St', 'Los Angeles'),
+    (3, 'Williams', 'Michael', '789 Oak St', 'Chicago'),
+    (4, 'Brown', 'Emily', '101 Pine St', 'Houston'),
+    (5, 'Jones', 'David', '222 Maple Ave', 'Phoenix'),
+    (6, 'Davis', 'Sarah', '333 Cedar Ln', 'Philadelphia'),
+    (7, 'Garcia', 'Robert', '444 Birch Rd', 'San Antonio'),
+    (8, 'Martinez', 'Linda', '555 Willow Dr', 'San Diego'),
+    (9, 'Hernandez', 'James', '666 Oakwood Blvd', 'Dallas'),
+    (10, 'Lopez', 'Mary', '777 Magnolia St', 'San Jose'),
+    (11, 'Gonzalez', 'William', '888 Birchwood Dr', 'Austin'),
+    (12, 'Wilson', 'Karen', '999 Spruce St', 'Jacksonville'),
+    (13, 'Anderson', 'Daniel', '111 Cedar Ave', 'Indianapolis'),
+    (14, 'Taylor', 'Susan', '222 Elmwood Dr', 'Columbus'),
+    (15, 'Thomas', 'Jessica', '333 Pinecrest Ln', 'San Francisco'),
+    (16, 'Moore', 'Richard', '444 Oakdale Rd', 'Seattle'),
+    (17, 'Jackson', 'Patricia', '555 Willow Ave', 'Denver'),
+    (18, 'White', 'Charles', '666 Elm St', 'Miami'),
+    (19, 'Harris', 'Lisa', '777 Maplewood Dr', 'Atlanta'),
+    (20, 'Clark', 'Mark', '888 Oakridge Rd', 'Boston');
+
+
+INSERT INTO Persons (PersonID, LastName, FirstName, Address, City) VALUES     (1, 'neelakanta', 'John', '123 Main St', 'gulbarga');
+
+select * from Persons; 
+
+
+6 and 7 
